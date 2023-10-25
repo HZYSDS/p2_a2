@@ -9,6 +9,36 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
-<VBox alignment="CENTER" styleClass="background" prefHeight="200.0" prefWidth="600.0" spacing="20" xmlns:fx="http://javafx.com/fxml/1">
-        
+<VBox alignment="CENTER" styleClass="background" prefHeight="200.0" prefWidth="600.0" spacing="20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Destinations.ExploreDestinationsController">
+       <!-- Inserting the ImageView to display the image -->
+       <ImageView fitHeight="200" fitWidth="800" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../image/destination.png" /> 
+        </image>
+    </ImageView>
+
+    <Separator/>
+    <Label text="Destinations" styleClass="heading"/>
+    <Separator/> 
+
+    <Region VBox.vgrow="ALWAYS" />
+
+    <GridPane hgap="0" vgap="0" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="20" />
+            <ColumnConstraints percentWidth="20" />
+            <ColumnConstraints percentWidth="20" />
+            <ColumnConstraints percentWidth="20" />
+            <ColumnConstraints percentWidth="20" />
+        </columnConstraints>
+        <Button text="Veiw All Destinations" fx:id="VButton"  GridPane.columnIndex="0" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="View Filtered Destinations" fx:id="VFButton" GridPane.columnIndex="1" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Add Destination" fx:id="AButton"  GridPane.columnIndex="2" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Remove Destination" fx:id="RButton"  GridPane.columnIndex="3" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Close" fx:id="CButton"  GridPane.columnIndex="4" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+    </GridPane>
+    
+    <stylesheets>
+        <URL value="@../style.css"/>
+    </stylesheets>        
 </VBox>

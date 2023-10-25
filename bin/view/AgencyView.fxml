@@ -9,6 +9,36 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
-<VBox alignment="CENTER" styleClass="background" prefHeight="200.0" prefWidth="800.0" spacing="20" xmlns:fx="http://javafx.com/fxml/1">
-        
+<VBox alignment="CENTER" styleClass="background" prefHeight="200.0" prefWidth="800.0" spacing="20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AgencyController" >
+    <!-- Inserting the ImageView to display the image -->
+    <ImageView fitHeight="200" fitWidth="780" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../image/agency.png" /> 
+        </image>
+    </ImageView>
+
+    <Separator/>
+    <Label text="Agency" styleClass="heading"/>
+    <Separator/> 
+
+    <Region VBox.vgrow="ALWAYS" />
+
+    <GridPane hgap="0" vgap="0" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="25" />
+            <ColumnConstraints percentWidth="25" />
+            <ColumnConstraints percentWidth="25" />
+            <ColumnConstraints percentWidth="25" />
+        </columnConstraints>
+        <Button text="Explore Flights" fx:id="FButton" onAction="#handleFButton" GridPane.columnIndex="0" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Explore Destinations" fx:id="DButton" onAction="#handleDButton" GridPane.columnIndex="1" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Book a Trip" fx:id="TButton"  onAction="#handleTButton" GridPane.columnIndex="2" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Exit" fx:id="EButton"  onAction="#handleEButton" GridPane.columnIndex="3" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+    </GridPane>
+    
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+
+
 </VBox>
