@@ -4,13 +4,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
 import model.Agency;
-import model.Destinations;
 
-public class ExploreDestinationsController extends Controller<Destinations>{
+public class ExploreDestinationsController extends Controller<Agency>{
     @FXML private Button VButton;
 
     @FXML private Button VFButton;
@@ -21,13 +21,20 @@ public class ExploreDestinationsController extends Controller<Destinations>{
 
     @FXML private Button CButton;
 
+    @FXML private Label NLabel;
+
+    public void initialize(){
+        NLabel.setText("Hi "+model.getLoggedInUser().getName()+",welcome to the Destinations section");
+        
+    }
+
     @FXML private void handleVButton(){
         try {
                 Stage stage = new Stage();
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/destinations_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Destinations/DisplayDestinationsView.fxml", "Display Destinations", stage);
+                ViewLoader.showStage(model, "/view/Destinations/DisplayDestinationsView.fxml", "Display Destinations", stage);
                 
             } catch (Exception e) {
                 showError("Error loading Explore Destinations view.");
@@ -40,7 +47,7 @@ public class ExploreDestinationsController extends Controller<Destinations>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/destinations_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Destinations/DisplayFilteredDestinationsView.fxml", "Display Destinations Filtered", stage);
+                ViewLoader.showStage(model, "/view/Destinations/DisplayFilteredDestinationsView.fxml", "Display Destinations Filtered", stage);
                
             } catch (Exception e) {
                 showError("Error loading Explore Destinations view.");
@@ -54,7 +61,7 @@ public class ExploreDestinationsController extends Controller<Destinations>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/destinations_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Destinations/AddDestinationView.fxml", "Add Destination", stage);
+                ViewLoader.showStage(model, "/view/Destinations/AddDestinationView.fxml", "Add Destination", stage);
                 
             } catch (Exception e) {
                 showError("Error loading Explore Destinations view.");
@@ -67,7 +74,7 @@ public class ExploreDestinationsController extends Controller<Destinations>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/destinations_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Destinations/RemoveDestinationView.fxml", "Remove Destination", stage);
+                ViewLoader.showStage(model, "/view/Destinations/RemoveDestinationView.fxml", "Remove Destination", stage);
               
             } catch (Exception e) {
                 showError("Error loading Explore Destinations view.");  

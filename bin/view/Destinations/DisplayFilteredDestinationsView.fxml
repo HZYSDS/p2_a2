@@ -26,10 +26,10 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Destinations.Displ
         <TextField fx:id="countryTF"/>
     </VBox>
 
-    <TableView fx:id="destinationsTable" VBox.vgrow="ALWAYS" prefWidth="600.0">
+    <TableView fx:id="destinationsTable" VBox.vgrow="ALWAYS" prefWidth="600.0" styleClass="no-horizontal-scrollbar">
         <columns>
-            <TableColumn text="Name" fx:id="nameColumn" prefWidth="299"/>
-            <TableColumn text="Country" fx:id="countryColumn" prefWidth="299"/>
+            <TableColumn text="Name" fx:id="nameColumn" prefWidth="300"/>
+            <TableColumn text="Country" fx:id="countryColumn" prefWidth="300"/>
         </columns>
     </TableView>
 

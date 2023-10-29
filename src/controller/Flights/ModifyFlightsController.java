@@ -87,6 +87,8 @@ public class ModifyFlightsController extends Controller<Agency> {
         } catch(ItemNotFoundException e){
             showError("sdad");
         } 
+        TTF.clear();
+        LTF.clear();
     }
 
     private void showError(String message) {

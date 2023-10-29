@@ -7,9 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
+import model.Agency;
+import model.Destination;
 import model.Destinations;
+import model.Exceptions.DuplicateItemException;
+import model.Exceptions.ItemNotFoundException;
 
-public class ModifyDestinationsController extends Controller<Destinations>{
+public class ModifyDestinationsController extends Controller<Agency>{
     @FXML private Button AButton;
 
     @FXML private Button RButton;
@@ -29,20 +33,28 @@ public class ModifyDestinationsController extends Controller<Destinations>{
     }
 
     @FXML private void handleAButton(){
-        try {
-                ((Stage) CButton.getScene().getWindow()).close();
-            } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
-            }
+        String nmaeValue = NTF.getText();
+        String countryValue = CTF.getText();
+        try{
+            model.getDestinations().addDestination(new Destination(nmaeValue, countryValue));
+        } catch(DuplicateItemException e){
+            showError("dadda");
+        }
+        NTF.clear();
+        CTF.clear();
     }
 
     @FXML private void handleRButton(){
-        try {
-                ((Stage) CButton.getScene().getWindow()).close();
-            } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
-            }
-    }
+        String nmaeValue = NTF.getText();
+        String countryValue = CTF.getText();
+        try{
+            model.getDestinations().removeDestination(new Destination(nmaeValue, countryValue));
+        } catch(ItemNotFoundException e){
+            showError("sdadda");
+        }
+        NTF.clear();
+        CTF.clear();
+    } 
 
     private void showError(String message) {
         Alert alert = new Alert(AlertType.ERROR);
