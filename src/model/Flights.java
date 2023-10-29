@@ -16,7 +16,9 @@ public class Flights {
 
     public Flights(ObservableList<Itinery> itinery) {
         this.flights = FXCollections.<Flight>observableArrayList();
-        for (Itinery i : itinery) { this.flights.add((Flight)i); }
+        for (Itinery i : itinery) { 
+            this.flights.add((Flight)i); 
+        }
     }
 
     public ObservableList<Flight> getFlights() {

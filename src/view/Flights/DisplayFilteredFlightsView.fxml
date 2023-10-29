@@ -18,21 +18,21 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.DisplayFli
     </ImageView>
 
     <Separator/>
-    <Label text="Flights" styleClass="heading"/>
+    <Label text="Flights" styleClass="heading" alignment="CENTER" />
     <Separator/> 
 
     <VBox alignment="CENTER" spacing="10">
-        <Label text="Country" minWidth="80"/>
+        <Label text="Country" minWidth="80" alignment="CENTER"/>
         <TextField fx:id="countryTF"/>
     </VBox>
 
-    <TableView fx:id="flightsTable" VBox.vgrow="ALWAYS" prefWidth="600.0">
+    <TableView fx:id="flightsTable" VBox.vgrow="ALWAYS" prefWidth="600.0" styleClass="no-horizontal-scrollbar">
         <columns>
-            <TableColumn text="Airline" fx:id="airlineColumn" prefWidth="119.6"/>
-            <TableColumn text="Flight Number" fx:id="flightNumberColumn" prefWidth="119.6"/>
-            <TableColumn text="Takeoff Country" fx:id="takeoffCountryColumn" prefWidth="119.6"/>
-            <TableColumn text="Landing Country" fx:id="landingCountryColumn" prefWidth="119.6"/>
-            <TableColumn text="Cost" fx:id="costColumn" prefWidth="119.6"/>
+            <TableColumn text="Airline" fx:id="airlineColumn" prefWidth="120"/>
+            <TableColumn text="Flight Number" fx:id="flightNumberColumn" prefWidth="120"/>
+            <TableColumn text="Takeoff Country" fx:id="takeoffCountryColumn" prefWidth="120"/>
+            <TableColumn text="Landing Country" fx:id="landingCountryColumn" prefWidth="120"/>
+            <TableColumn text="Cost" fx:id="costColumn" prefWidth="120"/>
         </columns>
     </TableView>
     

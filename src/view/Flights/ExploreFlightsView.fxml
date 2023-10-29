@@ -18,7 +18,7 @@
     </ImageView>
 
     <Separator/>
-    <Label text="Flights" styleClass="heading"/>
+    <Label fx:id="NLabel" styleClass="heading"/>
     <Separator/> 
 
     <Region VBox.vgrow="ALWAYS" />

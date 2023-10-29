@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.*;
@@ -19,13 +20,22 @@ public class AgencyController extends Controller<Agency>{
     
     @FXML private Button EButton;
 
+    @FXML private Label NLabel;
+
+    public void initialize(){
+        NLabel.setText("Hi "+model.getLoggedInUser().getName()+",welcome to the Prog2 Travel Agency");
+        for(Destination d: model.getDestinations().getDestinations()){
+            Utils.addFlightsForDestination(d, model);
+        }
+    }
+
     @FXML private void handleFButton(){
         try {
                 Stage stage = new Stage();
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/flights_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Flights/ExploreFlightsView.fxml", "Explore Flights", stage);
+                ViewLoader.showStage(model, "/view/Flights/ExploreFlightsView.fxml", "Explore Flights", stage);
 
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");
@@ -38,7 +48,7 @@ public class AgencyController extends Controller<Agency>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/destinations_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Destinations/ExploreDestinationsView.fxml", "Explore Destinations", stage);
+                ViewLoader.showStage(model, "/view/Destinations/ExploreDestinationsView.fxml", "Explore Destinations", stage);
 
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");
@@ -52,7 +62,7 @@ public class AgencyController extends Controller<Agency>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/Trip_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Trip/BookTripView.fxml", "Display Trip", stage);
+                ViewLoader.showStage(model, "/view/Trip/BookTripView.fxml", "Display Trip", stage);
 
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");

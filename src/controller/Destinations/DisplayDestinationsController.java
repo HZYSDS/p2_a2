@@ -12,10 +12,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
-import model.Destinations;
+import model.Agency;
 import model.Destination;
 
-public class DisplayDestinationsController extends Controller<Destinations> {
+public class DisplayDestinationsController extends Controller<Agency> {
     @FXML private Button CButton;
 
     @FXML private TextField countryTF;

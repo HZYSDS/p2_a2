@@ -36,7 +36,6 @@ public class DisplayTripController extends Controller<Trip>{
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
-    
-
     }
+    
 }

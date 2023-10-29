@@ -13,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import model.Administrators;
 import model.Agency;
 import model.Exceptions.ErrorModel;
 import model.Exceptions.InvalidCredentialsException;
@@ -35,16 +34,14 @@ public class LoginController extends Controller<Agency> {
         String password = passwordTF.getText();
         
         if (model != null && model.getAdministrators() != null ) {
-            // ... 原有代码 ...
         
         try {
-            // 验证管理员的账号和密码
             if (model.getAdministrators().hasAdministrator(username, password))  {
+                model.setLoggedInUser(model.getAdministrators().getAdministrator(username, password));
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/agency_icon.png"));
-                ViewLoader.showStage(new Administrators(), "/view/AgencyView.fxml", "Agency", stage);
-                // 关闭当前的LoginView窗口
+                ViewLoader.showStage(model, "/view/AgencyView.fxml", "Agency", stage);
                 ((Stage) loginButton.getScene().getWindow()).close();
             } 
         } catch (InvalidCredentialsException e) {

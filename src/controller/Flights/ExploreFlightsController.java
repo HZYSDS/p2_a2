@@ -4,13 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
 import model.Agency;
-import model.Flights;
+import model.Utils;
 
-public class ExploreFlightsController extends Controller<Flights>{
+public class ExploreFlightsController extends Controller<Agency>{
     
     @FXML private Button VButton;
 
@@ -22,13 +23,20 @@ public class ExploreFlightsController extends Controller<Flights>{
 
     @FXML private Button CButton;
 
+    @FXML private Label NLabel;
+
+    public void initialize(){
+        NLabel.setText("Hi "+model.getLoggedInUser().getName()+",welcome to the Flights section");
+        
+    }
+
     @FXML private void handleVButton(){
         try {
                 Stage stage = new Stage();
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/flights_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Flights/DisplayFlightsView.fxml", "Display Flights", stage);
+                ViewLoader.showStage(model, "/view/Flights/DisplayFlightsView.fxml", "Display Flights", stage);
                 
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");
@@ -41,7 +49,7 @@ public class ExploreFlightsController extends Controller<Flights>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/flights_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Flights/DisplayFilteredFlightsView.fxml", "Display Flights Filtered", stage);
+                ViewLoader.showStage(model, "/view/Flights/DisplayFilteredFlightsView.fxml", "Display Flights Filtered", stage);
                
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");
@@ -55,7 +63,7 @@ public class ExploreFlightsController extends Controller<Flights>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/flights_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Flights/AddFlightView.fxml", "Add Flight", stage);
+                ViewLoader.showStage(model, "/view/Flights/AddFlightView.fxml", "Add Flight", stage);
                 
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");
@@ -68,7 +76,7 @@ public class ExploreFlightsController extends Controller<Flights>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/flights_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Flights/RemoveFlightView.fxml", "Remove Flight", stage);
+                ViewLoader.showStage(model, "/view/Flights/RemoveFlightView.fxml", "Remove Flight", stage);
               
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");

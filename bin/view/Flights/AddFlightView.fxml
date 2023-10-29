@@ -20,8 +20,7 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.ModifyFlig
     <Separator/>
     <Label text="Add a Flight" styleClass="heading"/>
     <Separator/> 
-
-
+    
     <GridPane  alignment="CENTER" vgap="5">
         <Label text="Airline: "  GridPane.columnIndex="0" GridPane.rowIndex="0" />
         <TextField fx:id="ATF" styleClass="Bluetextfield" GridPane.columnIndex="1" GridPane.rowIndex="0" />

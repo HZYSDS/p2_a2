@@ -87,3 +87,10 @@
     -fx-border-radius: 0;
     -fx-background-color: rgb(123, 191, 241);
 }
+
+.no-horizontal-scrollbar .scroll-bar:horizontal {
+    -fx-opacity: 0;
+    -fx-min-width: 0;
+    -fx-max-width: 0;
+    -fx-pref-width: 0;
+}

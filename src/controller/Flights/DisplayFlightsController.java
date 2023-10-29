@@ -12,10 +12,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
+import model.Agency;
 import model.Flight;
-import model.Flights;
 
-public class DisplayFlightsController extends Controller<Flights> {
+public class DisplayFlightsController extends Controller<Agency> {
     @FXML private Button CButton;
 
     @FXML private TextField countryTF;
@@ -50,20 +50,31 @@ public class DisplayFlightsController extends Controller<Flights> {
 
     public void initialize() {
         airlineColumn.setCellValueFactory(new PropertyValueFactory<>("airline"));
-        flightNumberColumn.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
-        takeoffCountryColumn.setCellValueFactory(new PropertyValueFactory<>("takeoffCountry"));
-        landingCountryColumn.setCellValueFactory(new PropertyValueFactory<>("landingCountry"));
+        flightNumberColumn.setCellValueFactory(new PropertyValueFactory<>("flightNo"));
+        takeoffCountryColumn.setCellValueFactory(new PropertyValueFactory<>("takeoff"));
+        landingCountryColumn.setCellValueFactory(new PropertyValueFactory<>("landing"));
         costColumn.setCellValueFactory(new PropertyValueFactory<>("cost"));
         loadFlightData();
+        if (countryTF != null) {
+            countryTF.textProperty().addListener((observable, oldValue, newValue) -> {
+                filterFlightsBasedOnCountry(newValue);
+            });
+        }
+        
     }
 
     private void loadFlightData() {
-        ObservableList<Flight> flightData = FXCollections.observableArrayList();
 
-        flightData.add(new Flight("AirlineA", 1001, "CountryA", "CountryB", 150.0));
-        flightData.add(new Flight("AirlineB", 1002, "CountryB", "CountryC", 200.0));
-
-        flightsTable.setItems(flightData);
+        flightsTable.setItems(model.getFlights().getFlights());
+    }
+    
+    private void filterFlightsBasedOnCountry(String country) {
+        if (country != null && !country.isEmpty() && model.getFlights().hasFlight(country, country) ) {
+            ObservableList<Flight> filteredFlights = model.getFlights().getFilteredFlights(country);
+            flightsTable.setItems(filteredFlights);
+        } else {
+            loadFlightData();  // If countryTF is empty, show all flights
+        }
     }
     
 }
