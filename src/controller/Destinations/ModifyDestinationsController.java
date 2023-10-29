@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
 import model.Agency;
 import model.Destination;
+import model.Utils;
 import model.Exceptions.DuplicateItemException;
 import model.Exceptions.ItemNotFoundException;
 
@@ -39,6 +40,11 @@ public class ModifyDestinationsController extends Controller<Agency>{
         } catch(DuplicateItemException e){
             showError("dadda");
         }
+        
+        model.getFlights().getFlights().clear();
+        for(Destination d: model.getDestinations().getDestinations()){
+            Utils.addFlightsForDestination(d, model);
+        }
         NTF.clear();
         CTF.clear();
     }
@@ -50,6 +56,10 @@ public class ModifyDestinationsController extends Controller<Agency>{
             model.getDestinations().removeDestination(new Destination(nmaeValue, countryValue));
         } catch(ItemNotFoundException e){
             showError("sdadda");
+        }
+        model.getFlights().getFlights().clear();
+        for(Destination d: model.getDestinations().getDestinations()){
+            Utils.addFlightsForDestination(d, model);
         }
         NTF.clear();
         CTF.clear();

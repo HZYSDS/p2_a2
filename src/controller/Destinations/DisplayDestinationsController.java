@@ -54,7 +54,6 @@ public class DisplayDestinationsController extends Controller<Agency> {
     }
 
     private void loadDestinationData() {
-        ObservableList<Destination> destinationData = FXCollections.observableArrayList();
         
         destinationsTable.setItems(model.getDestinations().getDestinations());
     }
