@@ -9,10 +9,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
-<VBox alignment="CENTER" styleClass="background" prefHeight="420.0" prefWidth="600.0" spacing="20" 
+<VBox alignment="CENTER" styleClass="background" prefHeight="360.0" prefWidth="600.0" spacing="20" 
 xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Destinations.ModifyDestinationsController">
 
-<ImageView fitHeight="200" fitWidth="800" pickOnBounds="true" preserveRatio="true">
+<ImageView fitHeight="200" fitWidth="600" pickOnBounds="true" preserveRatio="true">
     <image>
         <Image url="@../../image/destination.png" /> 
     </image>
@@ -23,7 +23,7 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Destinations.Modif
 <Separator/> 
 
 
-<GridPane >
+<GridPane alignment="CENTER" vgap="5" >
     <Label text="Name:"  GridPane.columnIndex="0" GridPane.rowIndex="0" />
     <TextField fx:id="NTF"  GridPane.columnIndex="1" GridPane.rowIndex="0" />
     <Label text="Country:"  GridPane.columnIndex="0" GridPane.rowIndex="1" />

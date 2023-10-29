@@ -19,7 +19,7 @@ import model.Exceptions.ErrorModel;
 import model.Exceptions.InvalidCredentialsException;
 
 
-public class LoginController extends Controller<Administrators> {
+public class LoginController extends Controller<Agency> {
     
     @FXML private TextField usernameTF;
     
@@ -33,45 +33,32 @@ public class LoginController extends Controller<Administrators> {
     private void handleLoginButtonAction() {
         String username = usernameTF.getText();
         String password = passwordTF.getText();
-
-        try{
-            Stage stage = new Stage();
-            stage.setX(ViewLoader.X + 601);
-            stage.setY(ViewLoader.Y);
-            stage.getIcons().add(new Image("/image/agency_icon.png"));
-            ViewLoader.showStage(new Agency(), "/view/AgencyView.fxml", "Agency", stage);
-             ((Stage) exitButton.getScene().getWindow()).close();
-        }catch (Exception e) {
-            showError("Error loading Explore Flights view.");
-        }
-    
-
-        // try {
-        //     // 验证管理员的账号和密码
-        //     if (model.hasAdministrator(username, password))  {
-        //         stage.setX(ViewLoader.X + 601);
-        //         stage.setY(ViewLoader.Y);
-        //         stage.getIcons().add(new Image("/image/agency_icon.png"));
-        //         ViewLoader.showStage(new Administrators(), "/view/AgencyView.fxml", "Agency", stage);
-        //         // 关闭当前的LoginView窗口
-        //         ((Stage) loginButton.getScene().getWindow()).close();
-        //     } 
-        // } catch (InvalidCredentialsException e) {
-        //     try {
-        //         ErrorModel er = new ErrorModel(e, "Invalid credentials!");  // 使用一个明确的错误消息
-        //         ViewLoader.showErrorWindow(er);
-        //     } catch (Exception ex) {
-        //         ex.printStackTrace();  // 打印任何在尝试显示错误窗口时抛出的异常
-        //     }
-        // } catch (IOException ex) {
-        //     Logger.getLogger(AgencyController.class.getName()).log(Level.SEVERE, null, ex); 
-        // }
+        
+        if (model != null && model.getAdministrators() != null ) {
+            // ... 原有代码 ...
+        
+        try {
+            // 验证管理员的账号和密码
+            if (model.getAdministrators().hasAdministrator(username, password))  {
+                stage.setX(ViewLoader.X + 601);
+                stage.setY(ViewLoader.Y);
+                stage.getIcons().add(new Image("/image/agency_icon.png"));
+                ViewLoader.showStage(new Administrators(), "/view/AgencyView.fxml", "Agency", stage);
+                // 关闭当前的LoginView窗口
+                ((Stage) loginButton.getScene().getWindow()).close();
+            } 
+        } catch (InvalidCredentialsException e) {
+                ViewLoader.showErrorWindow(new ErrorModel(e, e.getMessage()));
+                usernameTF.clear();
+                passwordTF.clear();
+        } catch (IOException ex) {
+            Logger.getLogger(AgencyController.class.getName()).log(Level.SEVERE, null, ex); 
+        } 
     } 
-    
+}
     @FXML
     private void handleExitButtonAction() {
         try {
-
             ((Stage) exitButton.getScene().getWindow()).close();
         } catch (Exception e) {
             showError("Error loading Explore Flights view.");

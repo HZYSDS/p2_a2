@@ -6,6 +6,7 @@
 }
 
 .errorLabel {
+    -fx-font-size: 18pt;
     -fx-text-fill: red;
     -fx-text-weight: bold;
 }
@@ -80,4 +81,9 @@
 .textfield {
     -fx-border-radius: 0;
     -fx-background-color: rgb(226, 243, 255);
+}
+
+.Bluetextfield {
+    -fx-border-radius: 0;
+    -fx-background-color: rgb(123, 191, 241);
 }

@@ -11,7 +11,6 @@ public class Agency {
         this.admins = new Administrators();
         this.destinations = new Destinations(this);
         this.flights = new Flights(this);
-
         admins.insertDummyData();
         destinations.insertDummyData();
     }
@@ -35,4 +34,5 @@ public class Agency {
     public void setLoggedInUser(Administrator administrator) {
         this.loggedInUser = administrator;
     }
+    
 }

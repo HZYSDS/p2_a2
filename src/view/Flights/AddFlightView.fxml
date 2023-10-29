@@ -11,7 +11,7 @@
 
 <VBox alignment="CENTER" styleClass="background" prefHeight="420.0" prefWidth="600.0" spacing="20" 
 xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.ModifyFlightsController">
-    <ImageView fitHeight="200" fitWidth="800" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="200" fitWidth="600" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@../../image/flight.png" /> 
         </image>
@@ -22,17 +22,17 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.ModifyFlig
     <Separator/> 
 
 
-    <GridPane >
-        <Label text="Airline"  GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <TextField fx:id="ATF"  GridPane.columnIndex="1" GridPane.rowIndex="0" />
-        <Label text="Flight Number"  GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <TextField fx:id="FTF"  GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Label text="Takeoff"  GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <TextField fx:id="TTF"  GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <Label text="Landing"  GridPane.columnIndex="0" GridPane.rowIndex="3" />
-        <TextField fx:id="LTF"  GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        <Label text="Cost"  GridPane.columnIndex="0" GridPane.rowIndex="4" />
-        <TextField fx:id="CTF"  GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    <GridPane  alignment="CENTER" vgap="5">
+        <Label text="Airline: "  GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="ATF" styleClass="Bluetextfield" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label text="Flight Number: "  GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="FTF" styleClass="Bluetextfield" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label text="Takeoff: "  GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="TTF" styleClass="Bluetextfield" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label text="Landing: "  GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="LTF" styleClass="Bluetextfield" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Label text="Cost: "  GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="CTF" styleClass="Bluetextfield" GridPane.columnIndex="1" GridPane.rowIndex="4" />
     </GridPane>
 
     <Region VBox.vgrow="ALWAYS" />

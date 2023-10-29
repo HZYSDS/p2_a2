@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -12,7 +11,7 @@
 
 <VBox alignment="CENTER" styleClass="background" prefHeight="700.0" prefWidth="600.0" spacing="20" 
 xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Destinations.DisplayDestinationsController">
-    <ImageView fitHeight="200" fitWidth="800" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="200" fitWidth="600" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@../../image/destination.png" /> 
         </image>
@@ -22,7 +21,12 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Destinations.Displ
     <Label text="Destinations" styleClass="heading"/>
     <Separator/> 
 
-    <!-- table -->
+    <TableView fx:id="destinationsTable" VBox.vgrow="ALWAYS" prefWidth="600.0">
+        <columns>
+            <TableColumn text="Name" fx:id="nameColumn" prefWidth="299"/>
+            <TableColumn text="Country" fx:id="countryColumn" prefWidth="299"/>
+        </columns>
+    </TableView>
 
     <Region VBox.vgrow="ALWAYS" />
 

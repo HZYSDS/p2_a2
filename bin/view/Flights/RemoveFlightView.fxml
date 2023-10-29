@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
-<VBox alignment="CENTER" styleClass="background" prefHeight="420.0" prefWidth="600.0" spacing="20" 
+<VBox alignment="CENTER" styleClass="background" prefHeight="360.0" prefWidth="600.0" spacing="20" 
 xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.ModifyFlightsController">
-    <ImageView fitHeight="200" fitWidth="800" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="200" fitWidth="600" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@../../image/flight.png" /> 
         </image>
@@ -22,10 +22,10 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.ModifyFlig
     <Separator/> 
 
 
-    <GridPane >
-        <Label text="Takeoff"  GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <GridPane alignment="CENTER" vgap="5">
+        <Label text="Takeoff: "  GridPane.columnIndex="0" GridPane.rowIndex="0" />
         <TextField fx:id="TTF"  GridPane.columnIndex="1" GridPane.rowIndex="0" />
-        <Label text="Landing"  GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label text="Landing: "  GridPane.columnIndex="0" GridPane.rowIndex="1" />
         <TextField fx:id="LTF"  GridPane.columnIndex="1" GridPane.rowIndex="1" />
     </GridPane>
 
@@ -34,8 +34,10 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.ModifyFlig
             <ColumnConstraints percentWidth="50" />
             <ColumnConstraints percentWidth="50" />
         </columnConstraints>
-        <Button text="Remove Flight" fx:id="RButton" onAction="#handleRButton" GridPane.columnIndex="0" styleClass="lightBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="1" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Remove Flight" fx:id="RButton" onAction="#handleRButton" GridPane.columnIndex="0" 
+        styleClass="lightBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="1" 
+        styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
     </GridPane>
     
     <stylesheets>

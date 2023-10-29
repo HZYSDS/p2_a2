@@ -3,6 +3,7 @@ package model;
 import java.util.LinkedList;
 
 import javafx.collections.*;
+
 import model.Exceptions.*;
 
 public class Destinations {

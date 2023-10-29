@@ -3,20 +3,27 @@ package controller.Error;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import model.Exceptions.ErrorModel;
 import au.edu.uts.ap.javafx.Controller;
 
 public class ErrorController extends Controller<ErrorModel> {
 
-    public ErrorController(ErrorModel errormodel) {
-        super(errormodel);
+    private final StringProperty atext = new SimpleStringProperty();
+    private final StringProperty btext = new SimpleStringProperty();
+ 
+    public void initialize() {
+        if (model != null) {
+            atext.set(model.getMessage());
+            btext.set(model.getException().getCause().getMessage());
+            aLabel.textProperty().bind(atext);
+            bLabel.textProperty().bind(btext);
+        }
     }
-    
-    private final StringProperty atext = new SimpleStringProperty(model.getException().getMessage());
-    
-    private final StringProperty btext = new SimpleStringProperty(model.getMessage());
 
     @FXML private Label aLabel;
     
@@ -24,9 +31,21 @@ public class ErrorController extends Controller<ErrorModel> {
 
     @FXML private Button CButton;
 
-    public void initialize() {
-        aLabel.textProperty().bind(atext);
-        bLabel.textProperty().bind(btext);
+    @FXML private void handleCButton(){
+        try {
+                ((Stage) CButton.getScene().getWindow()).close();
+            } catch (Exception e) {
+                showError("Error loading Explore Destinations view.");
+            }
     }
+    
+    private void showError(String message) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    
 
+    }
 }

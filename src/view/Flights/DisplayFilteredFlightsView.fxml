@@ -11,7 +11,7 @@
 
 <VBox alignment="CENTER" styleClass="background" prefHeight="800.0" prefWidth="600.0" spacing="20" 
 xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.DisplayFlightsController">
-    <ImageView fitHeight="200" fitWidth="800" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="200" fitWidth="600" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@../../image/flight.png" /> 
         </image>
@@ -26,7 +26,15 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.DisplayFli
         <TextField fx:id="countryTF"/>
     </VBox>
 
-    <!-- table -->
+    <TableView fx:id="flightsTable" VBox.vgrow="ALWAYS" prefWidth="600.0">
+        <columns>
+            <TableColumn text="Airline" fx:id="airlineColumn" prefWidth="119.6"/>
+            <TableColumn text="Flight Number" fx:id="flightNumberColumn" prefWidth="119.6"/>
+            <TableColumn text="Takeoff Country" fx:id="takeoffCountryColumn" prefWidth="119.6"/>
+            <TableColumn text="Landing Country" fx:id="landingCountryColumn" prefWidth="119.6"/>
+            <TableColumn text="Cost" fx:id="costColumn" prefWidth="119.6"/>
+        </columns>
+    </TableView>
     
     <Region VBox.vgrow="ALWAYS" />
 

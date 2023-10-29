@@ -4,7 +4,7 @@ public class InvalidCredentialsException extends Exception {
 
     // 默认构造函数
     public InvalidCredentialsException() {
-        super("Invalid username or password.");
+        super("Invalid username or password.",new Throwable("nnnnnn"));
     }
 
     // 带有消息参数的构造函数
