@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
 import model.Agency;
 import model.Destination;
-import model.Destinations;
 import model.Exceptions.DuplicateItemException;
 import model.Exceptions.ItemNotFoundException;
 

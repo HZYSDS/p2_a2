@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
 import model.Agency;
 import model.Destination;
-import model.Flight;
 
 public class DisplayDestinationsController extends Controller<Agency> {
     @FXML private Button CButton;

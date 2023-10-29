@@ -9,7 +9,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
 import model.Agency;
-import model.Utils;
 
 public class ExploreFlightsController extends Controller<Agency>{
     
