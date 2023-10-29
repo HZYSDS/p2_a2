@@ -3,9 +3,9 @@ package model;
 import javafx.beans.property.*;
 
 public class Administrator {
-    StringProperty name;
-    StringProperty login;
-    StringProperty password;
+    private StringProperty name;
+    private StringProperty login;
+    private StringProperty password;
 
     public Administrator(String name, String login, String password) {
         this.name = new SimpleStringProperty(name);

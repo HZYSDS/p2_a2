@@ -31,11 +31,11 @@
             <ColumnConstraints percentWidth="20" />
             <ColumnConstraints percentWidth="20" />
         </columnConstraints>
-        <Button text="Veiw All Flights" fx:id="VButton"  GridPane.columnIndex="0" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="View Flights by Country" fx:id="VFButton" GridPane.columnIndex="1" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="Add Flight" fx:id="AButton"  GridPane.columnIndex="2" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="Remove Flight" fx:id="RButton"  GridPane.columnIndex="3" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="Close" fx:id="CButton"  GridPane.columnIndex="4" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Veiw All Flights" fx:id="VButton" onAction="#handleVButton" GridPane.columnIndex="0" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="View Flights by Country" fx:id="VFButton" onAction="#handleVFButton" GridPane.columnIndex="1" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Add Flight" fx:id="AButton"  onAction="#handleAButton" GridPane.columnIndex="2" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Remove Flight" fx:id="RButton"  onAction="#handleRButton" GridPane.columnIndex="3" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Close" fx:id="CButton"  onAction="#handleCButton" GridPane.columnIndex="4" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
     </GridPane>
     
     <stylesheets>

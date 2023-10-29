@@ -9,6 +9,38 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
-<VBox alignment="CENTER" styleClass="background" prefHeight="420.0" prefWidth="600.0" spacing="20" xmlns:fx="http://javafx.com/fxml/1">
-           
+<VBox alignment="CENTER" styleClass="background" prefHeight="420.0" prefWidth="600.0" spacing="20" 
+xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Destinations.ModifyDestinationsController">
+
+<ImageView fitHeight="200" fitWidth="800" pickOnBounds="true" preserveRatio="true">
+    <image>
+        <Image url="@../../image/destination.png" /> 
+    </image>
+</ImageView>
+
+<Separator/>
+<Label text="Remove a Destination" styleClass="heading"/>
+<Separator/> 
+
+
+<GridPane >
+    <Label text="Name:"  GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <TextField fx:id="NTF"  GridPane.columnIndex="1" GridPane.rowIndex="0" />
+    <Label text="Country:"  GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <TextField fx:id="CTF"  GridPane.columnIndex="1" GridPane.rowIndex="1" />
+</GridPane>
+
+<GridPane hgap="0" vgap="0" VBox.vgrow="ALWAYS">
+    <columnConstraints>
+        <ColumnConstraints percentWidth="50" />
+        <ColumnConstraints percentWidth="50" />
+    </columnConstraints>
+    <Button text="Remove Destination" fx:id="RButton" onAction="#handleRButton" GridPane.columnIndex="0" styleClass="lightBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+    <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="1" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+</GridPane>
+
+<stylesheets>
+    <URL value="@../style.css"/>
+</stylesheets>              
+        
 </VBox>

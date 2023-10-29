@@ -9,6 +9,44 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
-<VBox alignment="CENTER" styleClass="background" prefHeight="420.0" prefWidth="600.0" spacing="20" xmlns:fx="http://javafx.com/fxml/1">
-        
+<VBox alignment="CENTER" styleClass="background" prefHeight="420.0" prefWidth="600.0" spacing="20" 
+xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.ModifyFlightsController">
+    <ImageView fitHeight="200" fitWidth="800" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../image/flight.png" /> 
+        </image>
+    </ImageView>
+
+    <Separator/>
+    <Label text="Add a Flight" styleClass="heading"/>
+    <Separator/> 
+
+
+    <GridPane >
+        <Label text="Airline"  GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="ATF"  GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label text="Flight Number"  GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="FTF"  GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label text="Takeoff"  GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="TTF"  GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label text="Landing"  GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="LTF"  GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Label text="Cost"  GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="CTF"  GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    </GridPane>
+
+    <Region VBox.vgrow="ALWAYS" />
+
+    <GridPane hgap="0" vgap="0" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="50" />
+            <ColumnConstraints percentWidth="50" />
+        </columnConstraints>
+        <Button text="Add Flight" fx:id="AButton" onAction="#handleAButton" GridPane.columnIndex="0" styleClass="lightBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="1" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+    </GridPane>
+    
+    <stylesheets>
+        <URL value="@../style.css"/>
+    </stylesheets>    
 </VBox>

@@ -4,12 +4,24 @@ import javafx.stage.*;
 import model.*;
 
 public abstract class Controller<M> {
-
     protected M model;
-    
-    protected Stage stage;
 
-    protected Administrators administrators;
+    public Controller (){
+    }
+
+    public Controller (M modal){
+        this.model = modal;
+        stage = new Stage();
+    }
     
-    protected Agency agency;
+    public void setModel(M model) {
+        this.model = model;
+    }
+    
+    public M getModel() {
+        return model;
+    }
+    
+    protected Stage stage; 
+    
 }

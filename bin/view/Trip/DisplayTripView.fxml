@@ -12,6 +12,35 @@
 <?import javafx.geometry.Insets?>
 
 <VBox alignment="CENTER" styleClass="background" prefHeight="700.0" prefWidth="600.0" spacing="20"
-    xmlns:fx="http://javafx.com/fxml/1">
- 
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Trip.DisplayTripController">
+    <ImageView fitHeight="200" fitWidth="800" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../image/trip.png" /> 
+        </image>
+    </ImageView>
+
+    <Separator/>
+    <Label text="You Trip" styleClass="heading"/>
+    <Separator/> 
+
+    <!-- table -->
+
+    <Region VBox.vgrow="ALWAYS" />
+
+    <GridPane hgap="0" vgap="0" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="50" />
+            <ColumnConstraints percentWidth="50" />
+        </columnConstraints>
+        <Button text="View Individual" fx:id="VButton" onAction="#handleVButton" GridPane.columnIndex="0"
+            styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
+            maxHeight="Infinity" />
+        <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="1"
+            styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
+            maxHeight="Infinity" />
+    </GridPane>
+
+    <stylesheets>
+        <URL value="@../style.css"/>
+    </stylesheets>
 </VBox>

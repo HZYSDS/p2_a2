@@ -15,30 +15,19 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="" >
       <!-- Inserting the ImageView to display the image -->
     <ImageView fitHeight="200" fitWidth="800" pickOnBounds="true" preserveRatio="true">
         <image>
-            <Image url="@../../image/flight.png" /> 
+            <Image url="@../../image/error.png" /> 
         </image>
     </ImageView>
 
     <Separator/>
-    <Label text="Flights" styleClass="heading"/>
+    <Label text="Erroe" styleClass="heading"/>
     <Separator/> 
 
-    <Region VBox.vgrow="ALWAYS" />
-
-    <GridPane hgap="0" vgap="0" VBox.vgrow="ALWAYS">
-        <columnConstraints>
-            <ColumnConstraints percentWidth="20" />
-            <ColumnConstraints percentWidth="20" />
-            <ColumnConstraints percentWidth="20" />
-            <ColumnConstraints percentWidth="20" />
-            <ColumnConstraints percentWidth="20" />
-        </columnConstraints>
-        <Button text="Veiw All Flights" fx:id="VButton"  GridPane.columnIndex="0" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="View Flights by Country" fx:id="VFButton" GridPane.columnIndex="1" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="Add Flight" fx:id="AButton"  GridPane.columnIndex="2" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="Remove Flight" fx:id="RButton"  GridPane.columnIndex="3" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="Close" fx:id="CButton"  GridPane.columnIndex="4" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-    </GridPane>
+    <Hbox>
+        <Label fx:id="alabel" styleClass="heading"/>
+        <Label fx:id="blabel" styleClass="heading"/>
+        <Buttom text="Close" fx:id="CButton" />
+    </Hbox>
     
     <stylesheets>
         <URL value="@../style.css"/>

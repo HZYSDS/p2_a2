@@ -26,8 +26,7 @@ public class AgencyController extends Controller<Agency>{
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/flights_icon.png"));
                 ViewLoader.showStage(new Agency(), "/view/Flights/ExploreFlightsView.fxml", "Explore Flights", stage);
-                // 关闭当前的LoginView窗口
-                ((Stage) FButton.getScene().getWindow()).close();
+
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");
             }
@@ -40,8 +39,7 @@ public class AgencyController extends Controller<Agency>{
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/destinations_icon.png"));
                 ViewLoader.showStage(new Agency(), "/view/Destinations/ExploreDestinationsView.fxml", "Explore Destinations", stage);
-                // 关闭当前的LoginView窗口
-                ((Stage) FButton.getScene().getWindow()).close();
+
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");
             }
@@ -55,8 +53,7 @@ public class AgencyController extends Controller<Agency>{
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/Trip_icon.png"));
                 ViewLoader.showStage(new Agency(), "/view/Trip/BookTripView.fxml", "Display Trip", stage);
-                // 关闭当前的LoginView窗口
-                ((Stage) FButton.getScene().getWindow()).close();
+
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");
             }
@@ -64,7 +61,6 @@ public class AgencyController extends Controller<Agency>{
 
     @FXML private void handleEButton(){
         try {
-
                 ((Stage) FButton.getScene().getWindow()).close();
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");
