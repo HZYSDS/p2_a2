@@ -30,7 +30,7 @@ public class BookTripController extends Controller<Trip> {
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/trip_icon.png"));
-                ViewLoader.showStage(model.getAgency(), "/view/Destinations/AddDestinationView.fxml", "Trip:add destination", stage);
+                ViewLoader.showStage(model, "/view/Trip/TripAddDestinationView.fxml", "Trip:add destination", stage);
                 
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");
@@ -43,7 +43,7 @@ public class BookTripController extends Controller<Trip> {
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/trip_icon.png"));
-                ViewLoader.showStage(model.getAgency(), "/view/Destinations/RemoveDestinationView.fxml", "Trip:remove destination", stage);
+                ViewLoader.showStage(model, "/view/Trip/TripRemoveDestinationView.fxml", "Trip:remove destination", stage);
                
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");

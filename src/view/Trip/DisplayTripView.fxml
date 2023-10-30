@@ -22,7 +22,7 @@
     </ImageView>
 
     <Separator/>
-    <Label text="You Trip" styleClass="heading"/>
+    <Label text="You Trip" styleClass="heading"/>   
     <Separator/> 
 
     <ListView fx:id="tripList" prefHeight="500" prefWidth="600"/>

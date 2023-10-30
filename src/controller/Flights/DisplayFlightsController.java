@@ -72,7 +72,7 @@ public class DisplayFlightsController extends Controller<Agency> {
             ObservableList<Flight> filteredFlights = model.getFlights().getFilteredFlights(country);
             flightsTable.setItems(filteredFlights);
         } else {
-            loadFlightData();  // If countryTF is empty, show all flights
+            loadFlightData();  
         }
     }
     
