@@ -9,10 +9,21 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.DuplicateFormatFlagsException;
+import java.util.List;
+
 import au.edu.uts.ap.javafx.*;
 import model.Agency;
+import model.Destination;
+import model.Destinations;
+import model.Flight;
+import model.Flights;
 import model.Itinery;
 import model.Trip;
+import model.Exceptions.DuplicateItemException;
+import model.Exceptions.ErrorModel;
 
 public class DisplayTripController extends Controller<Trip> {
     @FXML private Button VButton;
@@ -24,61 +35,57 @@ public class DisplayTripController extends Controller<Trip> {
     public void initialize() {
         tripList.setItems(model.getItinery());
         tripList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-    
-        // tripList.setOnMousePressed(event -> {
-        //     // 计算点击位置对应的项的索引
-        //     int clickedIndex = tripList.getSelectionModel().getSelectedIndex();
-            
-        //     if(clickedIndex != -1) {
-        //         // 检查此项目是否在此之前已经被选中
-        //         if(tripList.getSelectionModel().getSelectedIndices().contains(clickedIndex)) {
-        //             // 如果已经选中，则取消选中
-        //             tripList.getSelectionModel().clearSelection(clickedIndex);
-        //         } else {
-        //             // 如果未选中，则选中该项目
-        //             tripList.getSelectionModel().select(clickedIndex);
-        //         }
-        //         event.consume(); // 阻止事件传播
-        //     }
-        // });
     }
     
-    
-    
-
     @FXML
-    private void handleVButton() {
-        ObservableList<Itinery> selectedItems = tripList.getSelectionModel().getSelectedItems();
-        for (Itinery selectedItem : selectedItems) {
-            String itemDescription = selectedItem.toString();
+private void handleVButton()  {
+    ObservableList<Itinery> selectedItems = tripList.getSelectionModel().getSelectedItems();
+    int i = 0,j=0;
+    for (Itinery item : selectedItems) {
+        if (item instanceof Destination) {
+            i++;
+        }
+    }
+    for (Itinery item : selectedItems) {
+        if (item instanceof Flight) {
+            j++;
+        }
+    }
 
-            if (itemDescription.contains("in")) {
+    try{
+        if(i!=0 && j!=0){
+            throw new DuplicateItemException();
+        }
+    }catch(DuplicateItemException e){
+        e.initCause(new Throwable("Duplicate Item Exception"));
+        ViewLoader.showErrorWindow(new ErrorModel(e,"Please select the same items"));
+    }
+    
+    if (j==0) {
+        try {
+            Destinations selectDestinations = new Destinations(selectedItems);            
+            Stage stage = new Stage();
+            stage.setX(ViewLoader.X + 601);
+            stage.setY(ViewLoader.Y);
+            stage.getIcons().add(new Image("/image/destinations_icon.png"));
+            ViewLoader.showStage(selectDestinations, "/view/Destinations/DisplayDestinationsView.fxml", "Display Destinations", stage);
+            } catch (Exception e) {
+                showError("Error loading Explore Destinations view.");
+            }
+    }
+    
+    if (i==0) {
                 try {
-                    Stage stage = new Stage();
-                    stage.setX(ViewLoader.X + 601);
-                    stage.setY(ViewLoader.Y);
-                    stage.getIcons().add(new Image("/image/destinations_icon.png"));
-                    ViewLoader.showStage(model.getDestinations(), "/view/Destinations/DisplayDestinationsView.fxml", "Display Destinations", stage);
-                } catch (Exception e) {
-                    showError("Error loading Explore Destinations view.");
-                }
-                
-            } else if (itemDescription.contains("Flight")) {
-                try {
+                    Flights selectFlights = new Flights(selectedItems);
                     Stage stage = new Stage();
                     stage.setX(ViewLoader.X + 601);
                     stage.setY(ViewLoader.Y);
                     stage.getIcons().add(new Image("/image/flights_icon.png"));
-                    ViewLoader.showStage(model.getFlights(), "/view/Flights/DisplayFlightsView.fxml", "Display Flights", stage);
+                    ViewLoader.showStage(selectFlights, "/view/Flights/DisplayFlightsView.fxml", "Display Flights", stage);
                 } catch (Exception e) {
                     showError("Error loading Explore Flights view.");
-                }
-            } else {
-                showError("Unknown item type.");
-            }
-        }
+                }    }
     }
-
 
     @FXML
     private void handleCButton() {
@@ -95,7 +102,6 @@ public class DisplayTripController extends Controller<Trip> {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
-
     }
-
+    
 }
