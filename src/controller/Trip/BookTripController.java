@@ -10,6 +10,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Agency;
 import model.Trip;
+import model.Exceptions.DuplicateItemException;
+import model.Exceptions.InsufficientDestinationsException;
 
 public class BookTripController extends Controller<Trip> {
     @FXML private Button AButton;
@@ -27,8 +29,8 @@ public class BookTripController extends Controller<Trip> {
                 Stage stage = new Stage();
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
-                stage.getIcons().add(new Image("/image/flights_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Flights/DisplayFlightsView.fxml", "Display Flights", stage);
+                stage.getIcons().add(new Image("/image/trip_icon.png"));
+                ViewLoader.showStage(model.getAgency(), "/view/Destinations/AddDestinationView.fxml", "Trip:add destination", stage);
                 
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");
@@ -40,8 +42,8 @@ public class BookTripController extends Controller<Trip> {
                 Stage stage = new Stage();
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
-                stage.getIcons().add(new Image("/image/flights_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Flights/DisplayFilteredFlightsView.fxml", "Display Flights Filtered", stage);
+                stage.getIcons().add(new Image("/image/trip_icon.png"));
+                ViewLoader.showStage(model.getAgency(), "/view/Destinations/RemoveDestinationView.fxml", "Trip:remove destination", stage);
                
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");
@@ -50,25 +52,22 @@ public class BookTripController extends Controller<Trip> {
     }
 
     @FXML private void handleACButton(){
-        try {
-                Stage stage = new Stage();
-                stage.setX(ViewLoader.X + 601);
-                stage.setY(ViewLoader.Y);
-                stage.getIcons().add(new Image("/image/flights_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Flights/AddFlightView.fxml", "Add Flight", stage);
-                
-            } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
-            }
+        try{
+            model.addConnectingFlights();
+        } catch(DuplicateItemException e){
+            showError("sada");
+        } catch(InsufficientDestinationsException e){
+            showError("dadda");
+        }
     }
-
+    
     @FXML private void handleVButton(){
         try {
                 Stage stage = new Stage();
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/trip_icon.png"));
-                ViewLoader.showStage(new Agency(), "/view/Trip/DisplayTripView.fxml", "Display Trip", stage);
+                ViewLoader.showStage(model, "/view/Trip/DisplayTripView.fxml", "Display Trip", stage);
               
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");

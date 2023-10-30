@@ -40,7 +40,6 @@ public class ModifyDestinationsController extends Controller<Agency>{
         } catch(DuplicateItemException e){
             showError("dadda");
         }
-        
         model.getFlights().getFlights().clear();
         for(Destination d: model.getDestinations().getDestinations()){
             Utils.addFlightsForDestination(d, model);

@@ -4,14 +4,23 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
+import model.Itinery;
 import model.Trip;
+
 
 public class DisplayTripController extends Controller<Trip>{
     @FXML private Button VButton;
 
     @FXML private Button CButton;
+
+    @FXML private ListView<Itinery> tripList;  
+
+    public void initialize(){
+        tripList.setItems(model.getItinery());
+    }
 
     @FXML private void handleVButton(){
         try {

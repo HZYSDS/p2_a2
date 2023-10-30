@@ -62,7 +62,7 @@ public class AgencyController extends Controller<Agency>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/Trip_icon.png"));
-                ViewLoader.showStage(model, "/view/Trip/BookTripView.fxml", "Display Trip", stage);
+                ViewLoader.showStage(new Trip(model), "/view/Trip/BookTripView.fxml", "Display Trip", stage);
 
             } catch (Exception e) {
                 showError("Error loading Explore Flights view.");

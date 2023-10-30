@@ -10,10 +10,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+
 
 <VBox alignment="CENTER" styleClass="background" prefHeight="700.0" prefWidth="600.0" spacing="20"
     xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Trip.DisplayTripController">
-    <ImageView fitHeight="200" fitWidth="800" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="200" fitWidth="600" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@../../image/trip.png" /> 
         </image>
@@ -23,7 +25,7 @@
     <Label text="You Trip" styleClass="heading"/>
     <Separator/> 
 
-    <!-- table -->
+    <ListView fx:id="tripList" prefHeight="500" prefWidth="600"/>
 
     <Region VBox.vgrow="ALWAYS" />
 
@@ -31,7 +33,7 @@
         <columnConstraints>
             <ColumnConstraints percentWidth="50" />
             <ColumnConstraints percentWidth="50" />
-        </columnConstraints>
+        </columnConstraints>    
         <Button text="View Individual" fx:id="VButton" onAction="#handleVButton" GridPane.columnIndex="0"
             styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
             maxHeight="Infinity" />
