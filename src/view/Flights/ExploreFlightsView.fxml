@@ -10,7 +10,6 @@
 <?import javafx.scene.control.*?>
 
 <VBox alignment="CENTER" styleClass="background" prefHeight="200.0" prefWidth="600.0" spacing="20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.ExploreFlightsController">
-       <!-- Inserting the ImageView to display the image -->
     <ImageView fitHeight="200" fitWidth="800" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@../../image/flight.png" /> 
@@ -31,11 +30,11 @@
             <ColumnConstraints percentWidth="20" />
             <ColumnConstraints percentWidth="20" />
         </columnConstraints>
-        <Button text="Veiw All Flights" fx:id="VButton" onAction="#handleVButton" GridPane.columnIndex="0" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="View Flights by Country" fx:id="VFButton" onAction="#handleVFButton" GridPane.columnIndex="1" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="Add Flight" fx:id="AButton"  onAction="#handleAButton" GridPane.columnIndex="2" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="Remove Flight" fx:id="RButton"  onAction="#handleRButton" GridPane.columnIndex="3" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="Close" fx:id="CButton"  onAction="#handleCButton" GridPane.columnIndex="4" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Veiw All Flights" fx:id="VButton" onAction="#handleVButton" GridPane.columnIndex="0" styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="View Flights by Country" fx:id="VFButton" onAction="#handleVFButton" GridPane.columnIndex="1" styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Add Flight" fx:id="AButton"  onAction="#handleAButton" GridPane.columnIndex="2" styleClass="bButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Remove Flight" fx:id="RButton"  onAction="#handleRButton" GridPane.columnIndex="3" styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Close" fx:id="CButton"  onAction="#handleCButton" GridPane.columnIndex="4" styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
     </GridPane>
     
     <stylesheets>

@@ -9,11 +9,13 @@ import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
 import model.Agency;
 import model.Destination;
+import model.Destinations;
 import model.Utils;
 import model.Exceptions.DuplicateItemException;
+import model.Exceptions.ErrorModel;
 import model.Exceptions.ItemNotFoundException;
 
-public class ModifyDestinationsController extends Controller<Agency>{
+public class ModifyDestinationsController extends Controller<Destinations>{
     @FXML private Button AButton;
 
     @FXML private Button RButton;
@@ -23,6 +25,14 @@ public class ModifyDestinationsController extends Controller<Agency>{
     @FXML private TextField NTF;
 
     @FXML private TextField CTF;
+
+    public void initialize() {
+        if(AButton != null){AButton.setDisable(true);}
+        if(RButton != null){RButton.setDisable(true);}
+        NTF.textProperty().addListener((observable, oldValue, newValue) -> toggleLoginButton());
+        CTF.textProperty().addListener((observable, oldValue, newValue) -> toggleLoginButton());
+
+}
 
     @FXML private void handleCButton(){
         try {
@@ -36,14 +46,16 @@ public class ModifyDestinationsController extends Controller<Agency>{
         String nmaeValue = NTF.getText();
         String countryValue = CTF.getText();
         try{
-            model.getDestinations().addDestination(new Destination(nmaeValue, countryValue));
+            model.addDestination(new Destination(nmaeValue, countryValue));
+            
         } catch(DuplicateItemException e){
-            showError("dadda");
+            e.initCause(new Throwable("Duplicate Item Exception"));
+            ViewLoader.showErrorWindow(new ErrorModel(e,"Please enter a new destination"));
         }
-        model.getFlights().getFlights().clear();
-        for(Destination d: model.getDestinations().getDestinations()){
-            Utils.addFlightsForDestination(d, model);
-        }
+
+
+
+    
         NTF.clear();
         CTF.clear();
     }
@@ -52,14 +64,15 @@ public class ModifyDestinationsController extends Controller<Agency>{
         String nmaeValue = NTF.getText();
         String countryValue = CTF.getText();
         try{
-            model.getDestinations().removeDestination(new Destination(nmaeValue, countryValue));
+            model.removeDestination(new Destination(nmaeValue, countryValue));
+            
         } catch(ItemNotFoundException e){
-            showError("sdadda");
+            e.initCause(new Throwable("Item Not Found Exception"));
+            ViewLoader.showErrorWindow(new ErrorModel(e,"Please enter a valid destination"));
         }
-        model.getFlights().getFlights().clear();
-        for(Destination d: model.getDestinations().getDestinations()){
-            Utils.addFlightsForDestination(d, model);
-        }
+
+
+
         NTF.clear();
         CTF.clear();
     } 
@@ -70,5 +83,15 @@ public class ModifyDestinationsController extends Controller<Agency>{
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    private void toggleLoginButton() {
+        if (!NTF.getText().trim().isEmpty() && !CTF.getText().trim().isEmpty() ) {
+            if(AButton != null){AButton.setDisable(false);}
+            if(RButton != null){RButton.setDisable(false);}
+        } else {
+            if(AButton != null){AButton.setDisable(true);}
+            if(RButton != null){RButton.setDisable(true);}
+        }
     }
 }

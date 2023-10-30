@@ -19,7 +19,7 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Trip.BookTripContr
 </ImageView>
 
 <Separator />
-<Label text="Trip" styleClass="heading" />
+<Label fx:id="NLabel" styleClass="heading" />
 <Separator />
 
 <Region VBox.vgrow="ALWAYS" />
@@ -33,18 +33,18 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Trip.BookTripContr
         <ColumnConstraints percentWidth="20" />
     </columnConstraints>
     <Button text="Add Destination" fx:id="AButton" onAction="#handleAButton" GridPane.columnIndex="0"
-        styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
+        styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
         maxHeight="Infinity" />
     <Button text="Remove Destination" fx:id="RButton" onAction="#handleRButton" GridPane.columnIndex="1"
-        styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
+        styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
         maxHeight="Infinity" />
     <Button text="Add Connecting Flights" fx:id="ACButton" onAction="#handleACButton" GridPane.columnIndex="2"
-        styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
+        styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
         maxHeight="Infinity" />
     <Button text="View Trip" fx:id="VButton" onAction="#handleVButton" GridPane.columnIndex="3"
-        styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
+        styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
         maxHeight="Infinity" />
-    <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="4" styleClass="darkBlueButton"
+    <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="4" styleClass="button"
         GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity" />
 </GridPane>
 

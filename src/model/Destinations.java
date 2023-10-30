@@ -46,12 +46,6 @@ public class Destinations {
         return false;
     }
 
-    public boolean hasDestination(String country) {
-        for (Destination d : destinations) {
-            if (d.getCountry().equals(country)) { return true; }
-        }
-        return false;
-    }
     //rename
     public Destination destination(String name, String country) throws ItemNotFoundException {
         if (!hasDestination(name, country)) { throw new ItemNotFoundException(); }

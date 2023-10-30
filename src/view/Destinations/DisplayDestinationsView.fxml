@@ -31,7 +31,7 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Destinations.Displ
     <Region VBox.vgrow="ALWAYS" />
 
     <GridPane hgap="0" vgap="0" VBox.vgrow="ALWAYS">
-        <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="4" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="4" styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
     </GridPane>
     
     <stylesheets>

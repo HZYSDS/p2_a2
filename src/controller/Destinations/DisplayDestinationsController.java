@@ -14,8 +14,9 @@ import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
 import model.Agency;
 import model.Destination;
+import model.Destinations;
 
-public class DisplayDestinationsController extends Controller<Agency> {
+public class DisplayDestinationsController extends Controller<Destinations> {
     @FXML private Button CButton;
 
     @FXML private TextField countryTF;
@@ -55,15 +56,15 @@ public class DisplayDestinationsController extends Controller<Agency> {
 
     private void loadDestinationData() {
         
-        destinationsTable.setItems(model.getDestinations().getDestinations());
+        destinationsTable.setItems(model.getDestinations());
     }
 
     private void filterDestinationsBasedOnCountry(String country) {
-        if (country != null && !country.isEmpty() && model.getDestinations().hasDestination(country) ) {
-            ObservableList<Destination> filteredDestinations = model.getDestinations().getFilteredDestinations(country);
+        if (country != null && !country.isEmpty()  ) {
+            ObservableList<Destination> filteredDestinations = model.getFilteredDestinations(country);
             destinationsTable.setItems(filteredDestinations);
         } else {
-            loadDestinationData();  // If countryTF is empty, show all flights
+            loadDestinationData();  
         }
     }
 }

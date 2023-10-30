@@ -61,7 +61,7 @@ public class ExploreDestinationsController extends Controller<Agency>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/destinations_icon.png"));
-                ViewLoader.showStage(model, "/view/Destinations/AddDestinationView.fxml", "Add Destination", stage);
+                ViewLoader.showStage(model.getDestinations(), "/view/Destinations/AddDestinationView.fxml", "Add Destination", stage);
                 
             } catch (Exception e) {
                 showError("Error loading Explore Destinations view.");
@@ -74,7 +74,7 @@ public class ExploreDestinationsController extends Controller<Agency>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/destinations_icon.png"));
-                ViewLoader.showStage(model, "/view/Destinations/RemoveDestinationView.fxml", "Remove Destination", stage);
+                ViewLoader.showStage(model.getDestinations(), "/view/Destinations/RemoveDestinationView.fxml", "Remove Destination", stage);
               
             } catch (Exception e) {
                 showError("Error loading Explore Destinations view.");  

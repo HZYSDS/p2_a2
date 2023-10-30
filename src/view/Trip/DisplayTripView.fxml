@@ -25,8 +25,12 @@
     <Label text="You Trip" styleClass="heading"/>   
     <Separator/> 
 
-    <ListView fx:id="tripList" prefHeight="500" prefWidth="600"/>
-
+    <ListView fx:id="tripList" prefHeight="500" prefWidth="600" >
+        <placeholder>
+            <Label text="Nothing yet" alignment="CENTER"/>
+        </placeholder>
+    </ListView>
+    
     <Region VBox.vgrow="ALWAYS" />
 
     <GridPane hgap="0" vgap="0" VBox.vgrow="ALWAYS">
@@ -35,10 +39,10 @@
             <ColumnConstraints percentWidth="50" />
         </columnConstraints>    
         <Button text="View Individual" fx:id="VButton" onAction="#handleVButton" GridPane.columnIndex="0"
-            styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
+            styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
             maxHeight="Infinity" />
         <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="1"
-            styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
+            styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity"
             maxHeight="Infinity" />
     </GridPane>
 

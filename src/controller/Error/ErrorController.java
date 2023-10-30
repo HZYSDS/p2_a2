@@ -18,8 +18,8 @@ public class ErrorController extends Controller<ErrorModel> {
  
     public void initialize() {
         if (model != null) {
-            atext.set(model.getMessage());
-            btext.set(model.getException().getCause().getMessage());
+            atext.set(model.getException().getCause().getMessage());
+            btext.set(model.getMessage());
             aLabel.textProperty().bind(atext);
             bLabel.textProperty().bind(btext);
         }
@@ -35,7 +35,7 @@ public class ErrorController extends Controller<ErrorModel> {
         try {
                 ((Stage) CButton.getScene().getWindow()).close();
             } catch (Exception e) {
-                showError("Error loading Explore Destinations view.");
+                showError(" ");
             }
     }
     

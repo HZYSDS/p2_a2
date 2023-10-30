@@ -35,9 +35,9 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.ModifyFlig
             <ColumnConstraints percentWidth="50" />
         </columnConstraints>
         <Button text="Remove Flight" fx:id="RButton" onAction="#handleRButton" GridPane.columnIndex="0" 
-        styleClass="lightBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
         <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="1" 
-        styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
     </GridPane>
     
     <stylesheets>

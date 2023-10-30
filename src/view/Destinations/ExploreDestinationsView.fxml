@@ -31,11 +31,11 @@
             <ColumnConstraints percentWidth="20" />
             <ColumnConstraints percentWidth="20" />
         </columnConstraints>
-        <Button text="Veiw All Destinations" fx:id="VButton" onAction="#handleVButton" GridPane.columnIndex="0" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="View Filtered Destinations" fx:id="VFButton" onAction="#handleVFButton" GridPane.columnIndex="1" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="Add Destination" fx:id="AButton" onAction="#handleAButton" GridPane.columnIndex="2" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="Remove Destination" fx:id="RButton" onAction="#handleRButton" GridPane.columnIndex="3" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-        <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="4" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Veiw All Destinations" fx:id="VButton" onAction="#handleVButton" GridPane.columnIndex="0" styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="View Filtered Destinations" fx:id="VFButton" onAction="#handleVFButton" GridPane.columnIndex="1" styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Add Destination" fx:id="AButton" onAction="#handleAButton" GridPane.columnIndex="2" styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Remove Destination" fx:id="RButton" onAction="#handleRButton" GridPane.columnIndex="3" styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="4" styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
     </GridPane>
     
     <stylesheets>

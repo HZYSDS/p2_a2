@@ -10,6 +10,7 @@ import au.edu.uts.ap.javafx.*;
 import model.Agency;
 import model.Flight;
 import model.Exceptions.DuplicateItemException;
+import model.Exceptions.ErrorModel;
 import model.Exceptions.ItemNotFoundException;
 
 public class ModifyFlightsController extends Controller<Agency> {
@@ -30,7 +31,13 @@ public class ModifyFlightsController extends Controller<Agency> {
     @FXML private TextField CTF;
 
         public void initialize() {
-        
+            if(AButton != null){AButton.setDisable(true);}
+            if(RButton != null){RButton.setDisable(true);}
+            if(AButton != null) ATF.textProperty().addListener((observable, oldValue, newValue) -> toggleLoginButton());
+            if(AButton != null) FTF.textProperty().addListener((observable, oldValue, newValue) -> toggleLoginButton());
+            TTF.textProperty().addListener((observable, oldValue, newValue) -> toggleLoginButton());
+            LTF.textProperty().addListener((observable, oldValue, newValue) -> toggleLoginButton());
+            if(AButton != null) CTF.textProperty().addListener((observable, oldValue, newValue) -> toggleLoginButton());
     }
 
     @FXML private void handleCButton(){
@@ -56,21 +63,23 @@ public class ModifyFlightsController extends Controller<Agency> {
             flightValue = Integer.parseInt(flightValueStr);
         } catch(NumberFormatException e) {
             showError("Invalid flight number entered.");
-            return;  // exit method early
+            return; 
         }
 
         try {
             costValue = Double.parseDouble(costValueStr);
         } catch(NumberFormatException e) {
             showError("Invalid cost entered.");
-            return;  // exit method early
+            return;  
         }
         try{
             model.getFlights().addFlight(new Flight(airlineValue, flightValue, takeoffValue, landingValue, costValue));
 
         } catch(DuplicateItemException e){
-             showError("Invalid flight number entered.");
+            e.initCause(new Throwable("Duplicate Item Exception"));
+            ViewLoader.showErrorWindow(new ErrorModel(e,"Please enter a new flight"));
         }
+
         ATF.clear();
         FTF.clear();
         TTF.clear();
@@ -84,7 +93,8 @@ public class ModifyFlightsController extends Controller<Agency> {
         try{
             model.getFlights().removeFlight(model.getFlights().getFlight(takeoffValue, landingValue));
         } catch(ItemNotFoundException e){
-            showError("sdad");
+            e.initCause(new Throwable("Item Not Found Exception"));
+            ViewLoader.showErrorWindow(new ErrorModel(e,"Please enter a valid Flight"));
         } 
         TTF.clear();
         LTF.clear();
@@ -100,5 +110,19 @@ public class ModifyFlightsController extends Controller<Agency> {
 
     }
 
+    private void toggleLoginButton() {
+        if (!TTF.getText().trim().isEmpty() && !LTF.getText().trim().isEmpty()) {
+            if(AButton != null){
+                if(!ATF.getText().trim().isEmpty() && !FTF.getText().trim().isEmpty() && !CTF.getText().trim().isEmpty())
+                AButton.setDisable(false);
+                else
+                AButton.setDisable(true);
+            }
+            if(RButton != null){RButton.setDisable(false);}
+        } else {
+            if(AButton != null){AButton.setDisable(true);}  
+            if(RButton != null){RButton.setDisable(true);}
+        }
+    }
 
 }

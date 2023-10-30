@@ -27,7 +27,7 @@
 
 }
 
-/* .button{
+.button{
     -fx-text-fill: white;
     -fx-font-family: "Arial Narrow";
     -fx-font-size: 11pt;
@@ -42,40 +42,6 @@
   -fx-font-weight:bold; 
   fx-font-size: 11pt;
   -fx-border-color:#168FC1; 
-} */
-
-.lightBlueButton{
-    -fx-text-fill: white;
-    -fx-font-family: "Arial Narrow";
-    -fx-font-size: 11pt;
-    -fx-font-weight: bold;
-    -fx-border-color: #AEDFF7;  
-    -fx-background-color: #AEDFF7;  
-}
-
-.lightBlueButton:hover{     
-  -fx-background-color: #85C5E3;  
-  -fx-text-fill: white;
-  -fx-font-weight: bold;
-  -fx-font-size: 11pt;
-  -fx-border-color: #AEDFF7;
-}
-
-.darkBlueButton{
-    -fx-text-fill: white;
-    -fx-font-family: "Arial Narrow";
-    -fx-font-size: 11pt;
-    -fx-font-weight: bold;
-    -fx-border-color: #0B729C;  
-    -fx-background-color: #168fc1;  
-}
-
-.darkBlueButton:hover{     
-  -fx-background-color: #0B729C; 
-  -fx-text-fill: white;
-  -fx-font-weight: bold;
-  -fx-font-size: 11pt;
-  -fx-border-color: #168fc1;
 }
 
 .textfield {

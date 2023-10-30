@@ -13,8 +13,9 @@ import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
 import model.Agency;
 import model.Flight;
+import model.Flights;
 
-public class DisplayFlightsController extends Controller<Agency> {
+public class DisplayFlightsController extends Controller<Flights> {
     @FXML private Button CButton;
 
     @FXML private TextField countryTF;
@@ -64,12 +65,12 @@ public class DisplayFlightsController extends Controller<Agency> {
 
     private void loadFlightData() {
 
-        flightsTable.setItems(model.getFlights().getFlights());
+        flightsTable.setItems(model.getFlights());
     }
     
     private void filterFlightsBasedOnCountry(String country) {
-        if (country != null && !country.isEmpty() && model.getFlights().hasFlight(country, country) ) {
-            ObservableList<Flight> filteredFlights = model.getFlights().getFilteredFlights(country);
+        if (country != null && !country.isEmpty() && model.hasFlight(country, country) ) {
+            ObservableList<Flight> filteredFlights = model.getFilteredFlights(country);
             flightsTable.setItems(filteredFlights);
         } else {
             loadFlightData();  

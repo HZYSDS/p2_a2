@@ -24,9 +24,9 @@ public class AgencyController extends Controller<Agency>{
 
     public void initialize(){
         NLabel.setText("Hi "+model.getLoggedInUser().getName()+",welcome to the Prog2 Travel Agency");
-        for(Destination d: model.getDestinations().getDestinations()){
-            Utils.addFlightsForDestination(d, model);
-        }
+        // for(Destination d: model.getDestinations().getDestinations()){
+        //     Utils.addFlightsForDestination(d, model);
+        // }
     }
 
     @FXML private void handleFButton(){
@@ -36,9 +36,14 @@ public class AgencyController extends Controller<Agency>{
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/flights_icon.png"));
                 ViewLoader.showStage(model, "/view/Flights/ExploreFlightsView.fxml", "Explore Flights", stage);
+                
+                model.getFlights().getFlights().clear();
+                for(Destination d: model.getDestinations().getDestinations()){
+                    Utils.addFlightsForDestination(d, model);
+                }
 
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
@@ -51,7 +56,7 @@ public class AgencyController extends Controller<Agency>{
                 ViewLoader.showStage(model, "/view/Destinations/ExploreDestinationsView.fxml", "Explore Destinations", stage);
 
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
 
     }
@@ -63,9 +68,12 @@ public class AgencyController extends Controller<Agency>{
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/Trip_icon.png"));
                 ViewLoader.showStage(new Trip(model), "/view/Trip/BookTripView.fxml", "Display Trip", stage);
-
+                model.getFlights().getFlights().clear();
+                for(Destination d: model.getDestinations().getDestinations()){
+                    Utils.addFlightsForDestination(d, model);
+                }
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
@@ -73,15 +81,14 @@ public class AgencyController extends Controller<Agency>{
         try {
                 ((Stage) FButton.getScene().getWindow()).close();
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
-    private void showError(String message) {
+    private void showError() {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
-        alert.setContentText(message);
         alert.showAndWait();
     
 

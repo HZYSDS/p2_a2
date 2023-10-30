@@ -10,6 +10,7 @@
 <?import javafx.scene.control.*?>
 
 <VBox  alignment="CENTER" styleClass="background" prefHeight="100.0" prefWidth="400.0" spacing="20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+
         <Separator/>
         <Label text="Login" styleClass="heading"/>
         <Separator/>
@@ -21,19 +22,20 @@
             </HBox>
             <HBox alignment="CENTER" spacing="10">
                 <Label text="Password:" minWidth="80"/>
-                <TextField fx:id="passwordTF"/>
+                <PasswordField fx:id="passwordTF"/>
             </HBox>
         </VBox>
-    
+
         <GridPane hgap="0" vgap="0" VBox.vgrow="ALWAYS">
             <columnConstraints>
                 <ColumnConstraints percentWidth="50" />
                 <ColumnConstraints percentWidth="50" />
             </columnConstraints>
-            <Button text="Login" fx:id="loginButton" onAction="#handleLoginButtonAction" GridPane.columnIndex="0" styleClass="lightBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-            <Button text="Exit" fx:id="exitButton" onAction="#handleExitButtonAction" GridPane.columnIndex="1" styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+            <Button text="Login" fx:id="loginButton" onAction="#handleLoginButtonAction" 
+            GridPane.columnIndex="0" styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+            <Button text="Exit" fx:id="exitButton" onAction="#handleExitButtonAction" 
+            GridPane.columnIndex="1" styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
         </GridPane>
-
 
         <stylesheets>
             <URL value="@style.css"/>
