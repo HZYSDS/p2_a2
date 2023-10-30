@@ -8,7 +8,6 @@ public class Administrators {
 
     public Administrators() {
         administrators = FXCollections.<Administrator>observableArrayList();
-        insertDummyData();
     }
 
     public ObservableList<Administrator> getAdministrators() {

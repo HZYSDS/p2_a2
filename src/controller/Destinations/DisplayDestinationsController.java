@@ -1,6 +1,5 @@
 package controller.Destinations;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -12,7 +11,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
-import model.Agency;
 import model.Destination;
 import model.Destinations;
 
@@ -31,15 +29,15 @@ public class DisplayDestinationsController extends Controller<Destinations> {
         try {
                 ((Stage) CButton.getScene().getWindow()).close();
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
-    private void showError(String message) {
+    private void showError() {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
-        alert.setContentText(message);
+
         alert.showAndWait();
     }
     
@@ -60,7 +58,7 @@ public class DisplayDestinationsController extends Controller<Destinations> {
     }
 
     private void filterDestinationsBasedOnCountry(String country) {
-        if (country != null && !country.isEmpty()  ) {
+        if ( !country.isEmpty()  ) {
             ObservableList<Destination> filteredDestinations = model.getFilteredDestinations(country);
             destinationsTable.setItems(filteredDestinations);
         } else {

@@ -44,7 +44,7 @@ public class ModifyFlightsController extends Controller<Agency> {
         try {
                 ((Stage) AButton.getScene().getWindow()).close();
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
@@ -62,18 +62,26 @@ public class ModifyFlightsController extends Controller<Agency> {
         try {
             flightValue = Integer.parseInt(flightValueStr);
         } catch(NumberFormatException e) {
-            showError("Invalid flight number entered.");
-            return; 
+            e.initCause(new Throwable("NumerFormatException"));
+            ViewLoader.showErrorWindow(new ErrorModel(e,"Enter a number"));
+            return;
         }
 
         try {
             costValue = Double.parseDouble(costValueStr);
         } catch(NumberFormatException e) {
-            showError("Invalid cost entered.");
-            return;  
+            e.initCause(new Throwable("NumerFormatException"));
+            ViewLoader.showErrorWindow(new ErrorModel(e,"Enter a number"));
+            return;
         }
+
         try{
             model.getFlights().addFlight(new Flight(airlineValue, flightValue, takeoffValue, landingValue, costValue));
+            try {
+                ((Stage) AButton.getScene().getWindow()).close();
+            } catch (Exception e) {
+                showError();
+            }
 
         } catch(DuplicateItemException e){
             e.initCause(new Throwable("Duplicate Item Exception"));
@@ -92,19 +100,24 @@ public class ModifyFlightsController extends Controller<Agency> {
         String landingValue = LTF.getText();
         try{
             model.getFlights().removeFlight(model.getFlights().getFlight(takeoffValue, landingValue));
+            try {
+                ((Stage) AButton.getScene().getWindow()).close();
+            } catch (Exception e) {
+                showError();
+            }
         } catch(ItemNotFoundException e){
-            e.initCause(new Throwable("Item Not Found Exception"));
+            e.initCause(new Throwable("ItemNotFoundException"));
             ViewLoader.showErrorWindow(new ErrorModel(e,"Please enter a valid Flight"));
         } 
         TTF.clear();
         LTF.clear();
     }
 
-    private void showError(String message) {
+    private void showError() {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
-        alert.setContentText(message);
+
         alert.showAndWait();
     
 

@@ -58,7 +58,7 @@ private void handleVButton()  {
         }
     }catch(DuplicateItemException e){
         e.initCause(new Throwable("Duplicate Item Exception"));
-        ViewLoader.showErrorWindow(new ErrorModel(e,"Please select the same items"));
+        ViewLoader.showErrorWindow(new ErrorModel(e,"Please select items of the same type"));
     }
     
     if (j==0) {
@@ -70,7 +70,7 @@ private void handleVButton()  {
             stage.getIcons().add(new Image("/image/destinations_icon.png"));
             ViewLoader.showStage(selectDestinations, "/view/Destinations/DisplayDestinationsView.fxml", "Display Destinations", stage);
             } catch (Exception e) {
-                showError("Error loading Explore Destinations view.");
+                showError();
             }
     }
     
@@ -83,7 +83,7 @@ private void handleVButton()  {
                     stage.getIcons().add(new Image("/image/flights_icon.png"));
                     ViewLoader.showStage(selectFlights, "/view/Flights/DisplayFlightsView.fxml", "Display Flights", stage);
                 } catch (Exception e) {
-                    showError("Error loading Explore Flights view.");
+                    showError();
                 }    }
     }
 
@@ -92,15 +92,14 @@ private void handleVButton()  {
         try {
             ((Stage) CButton.getScene().getWindow()).close();
         } catch (Exception e) {
-            showError("Error loading Explore Flights view.");
+            showError();
         }
     }
 
-    private void showError(String message) {
+    private void showError() {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
-        alert.setContentText(message);
         alert.showAndWait();
     }
     

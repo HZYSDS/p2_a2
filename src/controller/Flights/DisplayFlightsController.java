@@ -36,15 +36,15 @@ public class DisplayFlightsController extends Controller<Flights> {
         try {
                 ((Stage) CButton.getScene().getWindow()).close();
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
-    private void showError(String message) {
+    private void showError() {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
-        alert.setContentText(message);
+
         alert.showAndWait();
     }
 
@@ -69,7 +69,7 @@ public class DisplayFlightsController extends Controller<Flights> {
     }
     
     private void filterFlightsBasedOnCountry(String country) {
-        if (country != null && !country.isEmpty() && model.hasFlight(country, country) ) {
+        if ( !country.isEmpty()  ) {
             ObservableList<Flight> filteredFlights = model.getFilteredFlights(country);
             flightsTable.setItems(filteredFlights);
         } else {

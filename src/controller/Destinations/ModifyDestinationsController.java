@@ -7,10 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import au.edu.uts.ap.javafx.*;
-import model.Agency;
 import model.Destination;
 import model.Destinations;
-import model.Utils;
 import model.Exceptions.DuplicateItemException;
 import model.Exceptions.ErrorModel;
 import model.Exceptions.ItemNotFoundException;
@@ -38,7 +36,7 @@ public class ModifyDestinationsController extends Controller<Destinations>{
         try {
                 ((Stage) CButton.getScene().getWindow()).close();
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
@@ -47,9 +45,13 @@ public class ModifyDestinationsController extends Controller<Destinations>{
         String countryValue = CTF.getText();
         try{
             model.addDestination(new Destination(nmaeValue, countryValue));
-            
-        } catch(DuplicateItemException e){
-            e.initCause(new Throwable("Duplicate Item Exception"));
+                try {
+                    ((Stage) AButton.getScene().getWindow()).close();
+                } catch (Exception e) {
+                    showError();
+                }
+            } catch(DuplicateItemException e){
+            e.initCause(new Throwable("DuplicateItemException"));
             ViewLoader.showErrorWindow(new ErrorModel(e,"Please enter a new destination"));
         }
 
@@ -65,9 +67,13 @@ public class ModifyDestinationsController extends Controller<Destinations>{
         String countryValue = CTF.getText();
         try{
             model.removeDestination(new Destination(nmaeValue, countryValue));
-            
-        } catch(ItemNotFoundException e){
-            e.initCause(new Throwable("Item Not Found Exception"));
+                try {
+                    ((Stage) AButton.getScene().getWindow()).close();
+                } catch (Exception e) {
+                    showError();
+                }        
+            } catch(ItemNotFoundException e){
+            e.initCause(new Throwable("ItemNotFoundException"));
             ViewLoader.showErrorWindow(new ErrorModel(e,"Please enter a valid destination"));
         }
 
@@ -77,11 +83,11 @@ public class ModifyDestinationsController extends Controller<Destinations>{
         CTF.clear();
     } 
 
-    private void showError(String message) {
+    private void showError() {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
-        alert.setContentText(message);
+
         alert.showAndWait();
     }
 

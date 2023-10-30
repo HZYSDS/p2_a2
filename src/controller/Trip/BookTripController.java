@@ -41,10 +41,10 @@ public class BookTripController extends Controller<Trip> {
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/trip_icon.png"));
-                ViewLoader.showStage(model.getDestinations(), "/view/Destinations/AddDestinationView.fxml", "Trip:add destination", stage);
+                ViewLoader.showStage(model.getDestinations(), "/view/Destinations/AddDestinationView.fxml", "Add Destination To Trip", stage);
                 
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
@@ -54,10 +54,10 @@ public class BookTripController extends Controller<Trip> {
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/trip_icon.png"));
-                ViewLoader.showStage(model.getDestinations(), "/view/Destinations/RemoveDestinationView.fxml", "Trip:remove destination", stage);
+                ViewLoader.showStage(model.getDestinations(), "/view/Destinations/RemoveDestinationView.fxml", "Remove Destination To Trip", stage);
                
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
@@ -85,7 +85,7 @@ public class BookTripController extends Controller<Trip> {
                 ViewLoader.showStage(model, "/view/Trip/DisplayTripView.fxml", "Display Trip", stage);
               
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
@@ -93,15 +93,15 @@ public class BookTripController extends Controller<Trip> {
         try {
                 ((Stage) CButton.getScene().getWindow()).close();
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
-    private void showError(String message) {
+    private void showError() {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
-        alert.setContentText(message);
+
         alert.showAndWait();
     
 

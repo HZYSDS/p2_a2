@@ -34,10 +34,10 @@ public class ExploreDestinationsController extends Controller<Agency>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/destinations_icon.png"));
-                ViewLoader.showStage(model, "/view/Destinations/DisplayDestinationsView.fxml", "Display Destinations", stage);
+                ViewLoader.showStage(model.getDestinations(), "/view/Destinations/DisplayDestinationsView.fxml", "Display Destinations", stage);
                 
             } catch (Exception e) {
-                showError("Error loading Explore Destinations view.");
+                showError();
             }
     }
 
@@ -47,10 +47,10 @@ public class ExploreDestinationsController extends Controller<Agency>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/destinations_icon.png"));
-                ViewLoader.showStage(model, "/view/Destinations/DisplayFilteredDestinationsView.fxml", "Display Destinations Filtered", stage);
+                ViewLoader.showStage(model.getDestinations(), "/view/Destinations/DisplayFilteredDestinationsView.fxml", "Display Destinations Filtered", stage);
                
             } catch (Exception e) {
-                showError("Error loading Explore Destinations view.");
+                showError();
             }
 
     }
@@ -64,7 +64,7 @@ public class ExploreDestinationsController extends Controller<Agency>{
                 ViewLoader.showStage(model.getDestinations(), "/view/Destinations/AddDestinationView.fxml", "Add Destination", stage);
                 
             } catch (Exception e) {
-                showError("Error loading Explore Destinations view.");
+                showError();
             }
     }
 
@@ -77,7 +77,7 @@ public class ExploreDestinationsController extends Controller<Agency>{
                 ViewLoader.showStage(model.getDestinations(), "/view/Destinations/RemoveDestinationView.fxml", "Remove Destination", stage);
               
             } catch (Exception e) {
-                showError("Error loading Explore Destinations view.");  
+                showError();  
             }
     }
 
@@ -85,15 +85,15 @@ public class ExploreDestinationsController extends Controller<Agency>{
         try {
                 ((Stage) CButton.getScene().getWindow()).close();
             } catch (Exception e) {
-                showError("Error loading Explore Destinations view.");
+                showError();
             }
     }
 
-    private void showError(String message) {
+    private void showError() {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
-        alert.setContentText(message);
+
         alert.showAndWait();
     
 

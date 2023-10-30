@@ -16,7 +16,6 @@ public class Utils {
         double costMax = 999.99;
 
         LinkedList<String> countries = new LinkedList<String>();
-        
         for (Destination d : agency.getDestinations().getDestinations()) { countries.add(d.getCountry()); }
 
         for (String s : countries) {

@@ -35,10 +35,10 @@ public class ExploreFlightsController extends Controller<Agency>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/flights_icon.png"));
-                ViewLoader.showStage(model, "/view/Flights/DisplayFlightsView.fxml", "Display Flights", stage);
+                ViewLoader.showStage(model.getFlights(), "/view/Flights/DisplayFlightsView.fxml", "Display Flights", stage);
                 
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
@@ -48,10 +48,10 @@ public class ExploreFlightsController extends Controller<Agency>{
                 stage.setX(ViewLoader.X + 601);
                 stage.setY(ViewLoader.Y);
                 stage.getIcons().add(new Image("/image/flights_icon.png"));
-                ViewLoader.showStage(model, "/view/Flights/DisplayFilteredFlightsView.fxml", "Display Flights Filtered", stage);
+                ViewLoader.showStage(model.getFlights(), "/view/Flights/DisplayFilteredFlightsView.fxml", "Display Flights Filtered", stage);
                
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
 
     }
@@ -65,7 +65,7 @@ public class ExploreFlightsController extends Controller<Agency>{
                 ViewLoader.showStage(model, "/view/Flights/AddFlightView.fxml", "Add Flight", stage);
                 
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
@@ -78,7 +78,7 @@ public class ExploreFlightsController extends Controller<Agency>{
                 ViewLoader.showStage(model, "/view/Flights/RemoveFlightView.fxml", "Remove Flight", stage);
               
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
@@ -86,15 +86,15 @@ public class ExploreFlightsController extends Controller<Agency>{
         try {
                 ((Stage) CButton.getScene().getWindow()).close();
             } catch (Exception e) {
-                showError("Error loading Explore Flights view.");
+                showError();
             }
     }
 
-    private void showError(String message) {
+    private void showError() {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
-        alert.setContentText(message);
+
         alert.showAndWait();
     
 

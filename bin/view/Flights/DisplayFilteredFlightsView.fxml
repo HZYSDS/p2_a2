@@ -24,6 +24,7 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.DisplayFli
     <VBox alignment="CENTER" spacing="10">
         <Label text="Country" minWidth="80" alignment="CENTER"/>
         <TextField fx:id="countryTF"/>
+
     </VBox>
 
     <TableView fx:id="flightsTable" VBox.vgrow="ALWAYS" prefWidth="600.0" styleClass="no-horizontal-scrollbar">
@@ -34,12 +35,15 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Flights.DisplayFli
             <TableColumn text="Landing Country" fx:id="landingCountryColumn" prefWidth="120"/>
             <TableColumn text="Cost" fx:id="costColumn" prefWidth="120"/>
         </columns>
+        <placeholder>
+            <Label text="Not Flights" style="-fx-text-fill: grey; -fx-font-size: 16px;" />
+        </placeholder>
     </TableView>
     
     <Region VBox.vgrow="ALWAYS" />
 
     <GridPane hgap="0" vgap="0" VBox.vgrow="ALWAYS">
-        <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="0" styleClass="BlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="0" styleClass="button" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
     </GridPane>
     
     <stylesheets>

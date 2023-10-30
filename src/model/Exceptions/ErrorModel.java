@@ -16,5 +16,4 @@ public class ErrorModel extends Exception {
     public String getMessage() {
         return this.message;
     }
-    
 }

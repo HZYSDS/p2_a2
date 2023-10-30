@@ -6,7 +6,8 @@
 }
 
 .errorLabel {
-    -fx-font-size: 18pt;
+    -fx-font-size: 10pt;
+    -fx-font-family: Helvetica;
     -fx-text-fill: red;
     -fx-text-weight: bold;
 }

@@ -13,7 +13,7 @@
 <VBox alignment="CENTER" styleClass="background" prefHeight="250.0" prefWidth="400.0" spacing="20" 
 xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Error.ErrorController" >
       <!-- Inserting the ImageView to display the  -->
-    <ImageView fitHeight="100" fitWidth="400" pickOnBounds="true" preserveRatio="true">
+    <ImageView fitHeight="100" fitWidth="380" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@../../image/error.png" /> 
         </image>
@@ -26,13 +26,12 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Error.ErrorControl
     <VBox spacing="10" alignment="CENTER">
         <Label fx:id="aLabel" styleClass="errorLabel"/>
         <Label fx:id="bLabel" styleClass="Label"/>
+        <Button text="Close" fx:id="CButton" onAction="#handleCButton" prefWidth="380" prefHeight="40" styleClass="button" />
+        <Region VBox.vgrow="ALWAYS"/> 
     </VBox>
     
-    <GridPane hgap="10" vgap="10" VBox.vgrow="ALWAYS" >
-        <Button text="Close" fx:id="CButton" onAction="#handleCButton" GridPane.columnIndex="0" 
-        styleClass="darkBlueButton" GridPane.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
-    </GridPane>
-
+    
+    
     <stylesheets>
         <URL value="@../style.css"/>
     </stylesheets>

@@ -52,7 +52,7 @@ public class LoginController extends Controller<Agency> {
                     ((Stage) loginButton.getScene().getWindow()).close();
                 } 
             } catch (InvalidCredentialsException e) {
-                    e.initCause(new Throwable("Invalid Credentials Exception")) ;
+                    e.initCause(new Throwable("InvalidCredentialsException")) ;
                     ViewLoader.showErrorWindow(new ErrorModel(e, "Please enter the valid username and password"));
                     usernameTF.clear();
                     passwordTF.clear();

@@ -17,21 +17,15 @@ public class Trip {
     }
 
     public void addConnectingFlights() throws DuplicateItemException, InsufficientDestinationsException {
-        if (destinations.getDestinations().size() <= 1) { 
-            throw new InsufficientDestinationsException(); 
-        }
+        if (destinations.getDestinations().size() <= 1) { throw new InsufficientDestinationsException(); }
         flights.getFlights().clear();
         Destination currDestination = null;
         Destination nextDestination = null;
         for (int i = 0; i < destinations.getDestinations().size(); i++) {
             currDestination = destinations.getDestinations().get(i);
-            if (i == destinations.getDestinations().size() - 1) { 
-                return; 
-            }
+            if (i == destinations.getDestinations().size() - 1) { return; }
             nextDestination = destinations.getDestinations().get(i + 1);
-            if (currDestination.equals(nextDestination) || currDestination.getCountry().equals(nextDestination.getCountry())) { 
-                throw new DuplicateItemException(); 
-            }
+            if (currDestination.equals(nextDestination) || currDestination.getCountry().equals(nextDestination.getCountry())) { throw new DuplicateItemException(); }
             for (Flight f : agency.getFlights().getFlights()) {
                 if (f.getTakeoff().equals(currDestination.getCountry()) && f.getLanding().equals(nextDestination.getCountry())) {
                     try { flights.addFlight(f); }
